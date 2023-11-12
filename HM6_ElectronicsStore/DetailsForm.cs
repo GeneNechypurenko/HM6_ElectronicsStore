@@ -4,9 +4,10 @@ namespace HM6_ElectronicsStore
 {
     public partial class DetailsForm : Form
     {
+        event EventHandler DetailsFormClosed;
         public DetailsForm(Product[] products)
         {
-            this.Load += (s, e) =>
+            Load += (s, e) =>
             {
                 productGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 productGridView.DataSource = products;
@@ -14,5 +15,6 @@ namespace HM6_ElectronicsStore
 
             InitializeComponent();
         }
+        private void DetailsForm_FormClosing(object sender, FormClosingEventArgs e) => DetailsFormClosed?.Invoke(this, e);
     }
 }

@@ -54,6 +54,7 @@
             MaximizeBox = false;
             Name = "DetailsForm";
             Text = "Product Details";
+            FormClosing += DetailsForm_FormClosing;
             ((System.ComponentModel.ISupportInitialize)productGridView).EndInit();
             ResumeLayout(false);
         }

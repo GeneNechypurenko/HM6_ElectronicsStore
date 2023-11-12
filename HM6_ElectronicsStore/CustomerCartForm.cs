@@ -5,13 +5,13 @@ namespace HM6_ElectronicsStore
 {
     public partial class CustomerCartForm : Form
     {
-        public event EventHandler FormClosed;
+        public event EventHandler CustomerFormClosed;
 
         private Cart cart;
         public decimal TotalPrice { get; set; }
         public CustomerCartForm(Cart cart)
         {
-            this.Load += (s, e) =>
+            Load += (s, e) =>
             {
                 cartListBox.DataSource = cart.GetCartItems();
                 UpdatePriceLabel();
@@ -30,7 +30,7 @@ namespace HM6_ElectronicsStore
 
                 cart.RemoveFromCart(cartListBox.SelectedIndex);
 
-                this.FormClosed?.Invoke(this, EventArgs.Empty);
+                CustomerFormClosed?.Invoke(this, EventArgs.Empty);
 
                 UpdatePriceLabel();
             }
@@ -44,19 +44,25 @@ namespace HM6_ElectronicsStore
                 foreach (Product product in cart.GetCartItems())
                 {
                     order.AppendLine($"Product: {product.Name}, Price: {product.Price:C}");
-                    product.Quantity -= product.InCart;
-                    product.InCart = 0;
+                    product.Available -= product.Reserved;
+                    product.Reserved = 0;
                 }
 
                 MessageBox.Show($"Your order details:\n\n{order.ToString()}\nTotal: {TotalPrice:C}", "Order Details");
 
                 cart.GetCartItems().Clear();
                 TotalPrice = 0;
-                priceLabel.Text = $"TOTAL PRICE:   {TotalPrice:C}";
+                UpdatePriceLabel();
 
-                this.FormClosed?.Invoke(this, EventArgs.Empty);
-                this.Close();
+                CustomerFormClosed?.Invoke(this, EventArgs.Empty);
+                Close();
             }
+        }
+        private void CustomerCartForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TotalPrice = 0;
+            while (cart.GetCartItems().Count > 0) { cart.RemoveFromCart(cart.GetCartItems().Count - 1); }
+            CustomerFormClosed?.Invoke(this, EventArgs.Empty);
         }
         private void UpdatePriceLabel() => priceLabel.Text = $"TOTAL PRICE:   {TotalPrice:C}";
     }

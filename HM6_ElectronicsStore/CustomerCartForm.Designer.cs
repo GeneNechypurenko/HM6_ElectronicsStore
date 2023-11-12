@@ -96,6 +96,7 @@
             Name = "CustomerCartForm";
             StartPosition = FormStartPosition.Manual;
             Text = "Your Cart";
+            FormClosing += CustomerCartForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

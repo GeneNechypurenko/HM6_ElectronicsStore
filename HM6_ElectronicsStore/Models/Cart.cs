@@ -9,7 +9,7 @@ namespace HM6_ElectronicsStore.Models
         public void AddToCart(Product product) => cart.Add(product);
         public void RemoveFromCart(int index)
         {
-            cart.ElementAt(index).InCart--;
+            cart.ElementAt(index).Reserved--;
             cart.RemoveAt(index);
         }
         public BindingList<Product> GetCartItems() => cart;
