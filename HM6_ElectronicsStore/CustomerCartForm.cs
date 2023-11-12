@@ -30,6 +30,8 @@ namespace HM6_ElectronicsStore
 
                 cart.RemoveFromCart(cartListBox.SelectedIndex);
 
+                this.FormClosed?.Invoke(this, EventArgs.Empty);
+
                 UpdatePriceLabel();
             }
         }

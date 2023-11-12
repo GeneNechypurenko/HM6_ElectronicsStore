@@ -22,7 +22,6 @@ namespace HM6_ElectronicsStore
 
             categoryComboBox.DataSource = categories;
             categoryComboBox.DisplayMember = "Name";
-            categoryComboBox.ValueMember = "Name";
 
             UpdatePriceLabel();
 
@@ -30,21 +29,6 @@ namespace HM6_ElectronicsStore
 
             categoryComboBox.SelectedIndexChanged += (s, e) => InitializeProductListBox();
         }
-
-        private void InitializeProductListBox()
-        {
-            if (categoryComboBox.SelectedIndex == 0)
-            {
-                productListBox.DataSource = products;
-            }
-            else
-            {
-                productListBox.DataSource = products
-                    .Where(e => e.Category.Name.Equals(categoryComboBox.SelectedValue))
-                    .ToList();
-            }
-        }
-
         private void addToCartButton_Click(object sender, EventArgs e)
         {
             if (productListBox.SelectedItems.OfType<Product>().Any(e => e.Quantity > e.InCart))
@@ -91,6 +75,7 @@ namespace HM6_ElectronicsStore
                 InitializeProductListBox();
             }
         }
+        private void InitializeProductListBox() => productListBox.DataSource = products.Where(e => e.Category.Equals(categoryComboBox.SelectedValue)).ToList();
         private void UpdatePriceLabel() => priceLabel.Text = $"TOTAL PRICE:   {TotalPrice:C}";
     }
 }

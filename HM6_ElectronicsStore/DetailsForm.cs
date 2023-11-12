@@ -6,9 +6,13 @@ namespace HM6_ElectronicsStore
     {
         public DetailsForm(Product[] products)
         {
+            this.Load += (s, e) =>
+            {
+                productGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                productGridView.DataSource = products;
+            };
+
             InitializeComponent();
-            productGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            productGridView.DataSource = products;
         }
     }
 }
