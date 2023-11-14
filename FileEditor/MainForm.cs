@@ -1,3 +1,5 @@
+using HM7_TextEditor;
+
 namespace FileEditor
 {
     public partial class MainForm : Form
@@ -18,7 +20,7 @@ namespace FileEditor
         private void openButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Text Files (*.txt)|*.txt|Word Documents (*.doc;*.docx)|*.doc;*.docx|All Files (*.*)|*.*";
+            ofd.Filter = "Text Files (*.txt)|*.txt|Word Documents (*.doc)|*.doc|All Files (*.*)|*.*";
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -31,7 +33,9 @@ namespace FileEditor
 
         private void editButton_Click(object sender, EventArgs e)
         {
-
+            TextEditorForm editorForm = new TextEditorForm();
+            editorForm.Show();
+            editorForm.EditorTextBox.Text = editorTextBox.Text;
         }
     }
 }

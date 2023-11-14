@@ -8,10 +8,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="HM7_TextEditor">
-      <HintPath>..\HM7_TextEditor\obj\Debug\net7.0-windows\HM7_TextEditor.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
