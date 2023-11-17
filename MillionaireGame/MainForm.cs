@@ -39,7 +39,14 @@ namespace MillionaireGame
             startButton.Size = new Size(startButton.PreferredSize.Width + 20, startButton.PreferredSize.Height + 10);
             startButton.Location = new Point((Width - startButton.Width) / 2, (Height - startButton.Height) / 2);
 
-            startButton.Click += (sender, e) => quizForm.Show(this);
+            startButton.Click += (sender, e) =>
+            {
+                if (quizForm == null || quizForm.IsDisposed)
+                {
+                    quizForm = new QuizForm();
+                }
+                quizForm.Show(this);
+            };
 
             Controls.Add(titleLabel);
             Controls.Add(startButton);
