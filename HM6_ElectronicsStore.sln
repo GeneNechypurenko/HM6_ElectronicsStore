@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HM6_ElectronicsStore", "HM6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileEditor", "FileEditor\FileEditor.csproj", "{68D7F8EB-2725-49B8-882B-A69BFE655C3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionaireGame", "MillionaireGame\MillionaireGame.csproj", "{D5AB0695-4EB5-4BF2-B3F6-40C71509737B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{68D7F8EB-2725-49B8-882B-A69BFE655C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68D7F8EB-2725-49B8-882B-A69BFE655C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68D7F8EB-2725-49B8-882B-A69BFE655C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5AB0695-4EB5-4BF2-B3F6-40C71509737B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5AB0695-4EB5-4BF2-B3F6-40C71509737B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5AB0695-4EB5-4BF2-B3F6-40C71509737B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5AB0695-4EB5-4BF2-B3F6-40C71509737B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
